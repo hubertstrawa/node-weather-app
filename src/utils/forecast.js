@@ -10,8 +10,8 @@ const forecast = (latitude, longitude, callback) => {
             callback('DARKSKY Unable to find location', undefined)
         } else { 
             const {temperature, precipProbability, humidity} = body.currently
-            const {summary} = body.daily.data[0]
-            callback(undefined, `${summary}. Its currently ${temperature} degrees out. There is ${precipProbability} % chance of rain. Humidity is ${humidity} %`)
+            const {summary, temperatureLow, temperatureHigh} = body.daily.data[0]
+            callback(undefined, `${summary}. Its currently ${temperature} degrees out. This high today is ${temperatureHigh} with a low of ${temperatureLow}. There is ${precipProbability} % chance of rain. Humidity is ${humidity} %.`)
         }
     })
 }
